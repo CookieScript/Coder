@@ -1,5 +1,7 @@
 -- Coded by Dino Example at the bottom
 local function addOpenUi(Name, Accent)
+    local AccentColor = loadstring("return " .. Accent)()
+
     local gui = Instance.new("ScreenGui")
     gui.Parent = game.CoreGui
 
@@ -7,7 +9,7 @@ local function addOpenUi(Name, Accent)
     dino.Size = UDim2.new(0, 90, 0, 30)
     dino.Position = UDim2.new(0, 10, 0, 5)
     dino.BackgroundColor3 = Color3.fromRGB(10, 10, 10)
-    dino.BorderColor3 = Accent
+    dino.BorderColor3 = AccentColor
     dino.BorderSizePixel = 1
     dino.Active = true
     dino.BackgroundTransparency = 0
@@ -18,7 +20,7 @@ local function addOpenUi(Name, Accent)
     but1.Size = UDim2.new(0, 84, 0, 24)
     but1.Position = UDim2.new(0, 3, 0, 3)
     but1.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    but1.BorderColor3 = Accent
+    but1.BorderColor3 = AccentColor
     but1.BorderSizePixel = 0
     but1.Text = Name
     but1.BackgroundTransparency = 0
@@ -30,7 +32,7 @@ local function addOpenUi(Name, Accent)
     local UIGradient = Instance.new("UIGradient")
     UIGradient.Color = ColorSequence.new{
         ColorSequenceKeypoint.new(0, Color3.fromRGB(50, 50, 50)), 
-        ColorSequenceKeypoint.new(0.5, Accent), 
+        ColorSequenceKeypoint.new(0.5, AccentColor), 
         ColorSequenceKeypoint.new(1, Color3.fromRGB(50, 50, 50))
     }
     UIGradient.Rotation = 90
@@ -44,8 +46,5 @@ end
 
 --[[
 
-
-Library:addOpenUi({Name = "Open UI", Accent = Color})
-
-
+Library:addOpenUi({Name = "Open Ui", Accent = "Color3.fromRGB(0,0,0)"})
 ]]
